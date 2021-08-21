@@ -1,0 +1,39 @@
+<?php
+include_once '../config/database.php';
+include_once '../objects/product.php';
+include_once '../product/exportProductData.php';
+?>
+
+
+<div class="well-sm col-sm-12">
+	<div class="btn-group pull-right">	
+		<form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">					
+			<button type="submit" id="csvExport" name='csvExport' value="Export to CSV" class="btn btn-info">Export to CSV</button>
+		</form>
+	</div>
+</div>
+
+
+
+<table id="" class="table table-striped table-bordered">
+	<tr>
+		<th>Name</th>
+		<th>Gender</th>
+		<th>Age</th>	
+		<th>Designation</th>
+		<th>Address</th>
+	</tr>
+	<tbody>
+		<?php foreach($productArrays as $productArray) { ?>
+		   <tr>
+		   <td><?php echo $productArray ['category_name']; ?></td>
+		   <td><?php echo $productArray ['id']; ?></td>
+		   <td><?php echo $productArray ['name']; ?></td>   
+		   <td><?php echo $productArray ['description']; ?></td>
+		   <td><?php echo $productArray ['price']; ?></td>
+           <td><?php echo $productArray ['category_id']; ?></td>  
+           <td><?php echo $productArray ['created']; ?></td>  
+		   </tr>
+		<?php } ?>
+	</tbody>
+</table>
